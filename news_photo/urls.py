@@ -18,8 +18,10 @@ from django.urls import path
 from graphene_django.views import GraphQLView
 from django.views.decorators.csrf import csrf_exempt
 from Graphql.schema import schema
+from Conection_extern_services.info_for_informe import info_about_news_and_photos_report
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=True, schema=schema))),
+    path('obtain-data-for-report/', info_about_news_and_photos_report),
 ]
